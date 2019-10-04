@@ -1,0 +1,106 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.container{
+    width: 300px;
+    height: 300px;
+    /*border: 1px solid #000;*/
+    margin: 160px auto;
+    /*修改视距*/
+    /* -webkit-perspective: 20000px; */
+}
+.box{
+    width: 300px;
+    height: 300px;
+    /*控制子元素保持3D转换*/
+    transform-style: preserve-3d;
+
+    /*测试代码 为了方便从侧面观察*/
+    /*transform: rotateX(45deg) rotateY(45deg);*/
+    animation: ro 4s linear infinite;
+}
+/*整个魔方的旋转动画*/
+@keyframes ro{
+    0%{
+        transform: rotateX(0deg) rotateY(0deg);
+    }
+    100%{
+        transform: rotateX(360deg) rotateY(360deg);
+    }
+}
+.box-page{
+    width: 300px;
+    height: 300px;
+    /*位置初始化*/
+    position: absolute;
+    /*控制子元素保持3D转换*/
+    transform-style: preserve-3d;
+}
+.top{
+    /* background-color: red; */
+    transform: translateZ(150px);
+}
+.bottom{
+    /* background-color: green; */
+    transform: translateZ(-150px) rotateX(180deg);
+}
+.left{
+    /* background-color: orange; */
+    transform: translateX(-150px) rotateY(-90deg);
+}
+.right{
+    /* background-color: pink; */
+    transform: translateX(150px) rotateY(90deg);
+}
+.before{
+    /* background-color: blue; */
+    transform: translateY(150px) rotateX(-90deg);
+}
+.after{
+    /* background-color: yellow; */
+    transform: translateY(-150px) rotateX(90deg);
+}
+
+.box-page div:nth-child(1){
+    animation: al 4.5s ease-in;
+}
+.box-page div:nth-child(2){
+    animation: al 4.5s ease-in 0.5;
+}
+.box-page div:nth-child(3){
+    animation: al 4.5s ease-in 1s;
+}
+.box-page div:nth-child(4){
+    animation: al 4.5s ease-in 1.5s;
+}
+.box-page div:nth-child(5){
+    animation: al 4.5s ease-in 2s;
+}
+.box-page div:nth-child(6){
+    animation: al 4.5s ease-in 2.5s;
+}
+.box-page div:nth-child(7){
+    animation: al 4.5s ease-in 3s;
+}
+.box-page div:nth-child(8){
+    animation: al 4.5s ease-in 3.5s;
+}
+.box-page div:nth-child(9){
+    animation: al 4.5s ease-in 4s;
+}
+@keyframes al{
+    0%{
+          transform: translateZ(0px) scale(1) rotateZ(0deg);
+    }
+    20%{
+        transform: translateZ(300px) scale(0) rotateZ(720deg);
+    }
+    90%{
+        transform: translateZ(300px) scale(0) rotateZ(720deg);
+    }
+    100%{
+        transform: translateZ(0px) scale(1) rotateZ(0deg);
+    }
+}
